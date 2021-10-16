@@ -21,4 +21,5 @@ from lp import views as lp_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', lp_views.landing_page, name='home'),
+    path('', include('django.contrib.auth.urls')),
 ]
