@@ -5,7 +5,12 @@
 {% block content %}
 
     {% if user.is_authenticated %}
-        Hoşgeldin {{ user.username }}
+        <p>Hoşgeldin {{ user.username }}</p>
+<li>
+    <ul>kullanıcı adı: {{user.username}}</ul>
+    <ul>email: {{user.email}}</ul>
+</li>
+
         <p><a href="{% url 'logout' %}">Log Out</a></p>
     {% endif %}
 
