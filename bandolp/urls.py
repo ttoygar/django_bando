@@ -23,4 +23,5 @@ urlpatterns = [
     path('', lp_views.landing_page, name='home'),
     path('', include('django.contrib.auth.urls')),
     path('signup/', lp_views.signup, name='signup'),
+    path('change_pass/', lp_views.change_pass, name='change_pass'),
 ]

@@ -9,3 +9,9 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2', )
+
+class ChangePassForm(UserCreationForm):
+    password1 = forms.PasswordInput()
+    class Meta:
+        model = User
+        fields = ('password1', 'password2', )

@@ -5,13 +5,15 @@
 {% block content %}
 
     {% if user.is_authenticated %}
-        <p>Hoşgeldin {{ user.username }}</p>
+        <h2>Hoşgeldin {{ user.username }}</h2>
 <li>
     <ul>kullanıcı adı: {{user.username}}</ul>
     <ul>email: {{user.email}}</ul>
 </li>
-
-        <p><a href="{% url 'logout' %}">Log Out</a></p>
+        <p><button onclick="location.href='{% url 'change_pass' %}'">Change password</button></p>
+        <p><button onclick="location.href='{% url 'logout' %}'">Log Out</button></p>
     {% endif %}
 
 {% endblock %}
+
+
