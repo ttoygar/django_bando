@@ -5,9 +5,9 @@
 {% block content %}
 
     {% if user.is_authenticated %}
-        <h2>Hoşgeldin {{ user.username }}</h2>
+        <h2>Welcome {{ user.username }}</h2><br>
 <li>
-    <ul>kullanıcı adı: {{user.username}}</ul>
+    <ul>username: {{user.username}}</ul>
     <ul>email: {{user.email}}</ul>
 </li>
         <p><button onclick="location.href='{% url 'change_pass' %}'">Change password</button></p>

@@ -6,6 +6,8 @@ from django.contrib import messages
 
 from lp.forms import SignUpForm, ChangePassForm
 
+ADMIN_MAIL = 'admin@deneme.den'
+
 
 def landing_page(request):
     """
@@ -38,7 +40,7 @@ def signup(request):
             send_mail(
                 'Welcome',
                 f'Welcome to the site, {username}!',
-                'admin@deneme.den',
+                ADMIN_MAIL,
                 [email],
                 fail_silently=False,
             )
