@@ -3,6 +3,7 @@
 A rudimentary user handling system created using django
 
 
-To run in localhost:1000
-
+To run in localhost:1000 ;
+```bash
 $ python manage.py runserver 127.0.0.1:1000
+```
