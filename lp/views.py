@@ -14,7 +14,7 @@ def landing_page(request):
     if request.user.is_authenticated:
         if request.user.is_superuser:
             return redirect('/admin/')
-        return render(request, "lp/home.html")
+        return render(request, "home.html")
     return redirect('/login/')
 
 
@@ -36,8 +36,8 @@ def signup(request):
 
             # Welcome mail
             send_mail(
-                'BAŞLIK',
-                f'Welcome to the site {username}!',
+                'Welcome',
+                f'Welcome to the site, {username}!',
                 'admin@deneme.den',
                 [email],
                 fail_silently=False,
@@ -63,7 +63,13 @@ def change_pass(request):
                 u = User.objects.get(id=user_id)
                 u.set_password(raw_password)
                 u.save()
+                user = authenticate(username=u.username,
+                                    password=raw_password)
+                login(request, user)
                 messages.success(request, 'Password successfully changed')
+                return render(request, "home.html")
+            else:
+                messages.failure('Please enter a valid password')
         else:
             form = ChangePassForm()
 
